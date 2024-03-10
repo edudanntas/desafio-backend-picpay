@@ -2,6 +2,7 @@ package com.eduardo.desafiopicpay.service;
 
 import com.eduardo.desafiopicpay.domain.entities.User;
 import com.eduardo.desafiopicpay.domain.enums.UserType;
+import com.eduardo.desafiopicpay.dto.UserDTO;
 import com.eduardo.desafiopicpay.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,11 @@ public class UserService {
 
     public User findById(Long id) throws Exception {
         return repository.findById(id).orElseThrow(Exception::new);
+    }
+
+    public User createUser(UserDTO userDTO){
+        User user = new User(userDTO);
+        return repository.save(user);
     }
 
     public void saveUser(User user){
