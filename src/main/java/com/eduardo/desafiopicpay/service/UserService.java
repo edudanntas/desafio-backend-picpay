@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -31,6 +32,10 @@ public class UserService {
     public User createUser(UserDTO userDTO){
         User user = new User(userDTO);
         return repository.save(user);
+    }
+
+    public List<User> findAll(){
+        return repository.findAll();
     }
 
     public void saveUser(User user){
