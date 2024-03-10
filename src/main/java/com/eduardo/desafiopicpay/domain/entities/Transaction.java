@@ -22,6 +22,6 @@ public class Transaction implements Serializable {
     private User sender;
     @ManyToOne
     private User receiver;
-    private BigDecimal value;
+    private BigDecimal amount;
     private LocalDateTime transactionDate;
 }
